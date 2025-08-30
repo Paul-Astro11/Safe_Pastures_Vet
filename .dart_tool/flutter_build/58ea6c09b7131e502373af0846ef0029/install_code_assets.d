@@ -1,0 +1,1 @@
+ C:\\Users\\HP\\StudioProjects\\Safe_Pastures_Vet\\.dart_tool\\flutter_build\\58ea6c09b7131e502373af0846ef0029\\native_assets.json: 
