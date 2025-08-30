@@ -194,12 +194,7 @@ class PendingRequestsList extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          // Navigate to capture report
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Accepting request ${request['id']}'),
-                            ),
-                          );
+                           context.go('/capture');
                         },
                         child: const Text('Accept Request'),
                       ),

@@ -278,7 +278,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                           ElevatedButton.icon(
                                             onPressed: _pickImages,
                                             icon: const Icon(Icons.photo_library),
-                                            label: const Text('Choose Files'),
+                                            label: const Text('Choose File'),
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor: Colors.transparent,
                                               foregroundColor: Theme.of(context).colorScheme.primary,
@@ -300,6 +300,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                               ),
                                             ),
                                           ),
+                                          const SizedBox(width: 6),
                                         ],
                                       ),
                                     ],

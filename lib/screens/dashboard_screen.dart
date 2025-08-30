@@ -23,9 +23,9 @@ class DashboardScreen extends StatelessWidget {
                 children: [
                   // Page Title
                   Text(
-                    'Manage your veterinary requests',
+                    'Manage requests',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 12),
