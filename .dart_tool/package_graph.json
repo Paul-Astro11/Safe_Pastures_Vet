@@ -1,10 +1,10 @@
 {
   "roots": [
-    "vetcare_pro"
+    "safe_pastures_vet"
   ],
   "packages": [
     {
-      "name": "vetcare_pro",
+      "name": "safe_pastures_vet",
       "version": "1.0.0+1",
       "dependencies": [
         "cupertino_icons",

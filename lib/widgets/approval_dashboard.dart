@@ -12,7 +12,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
 
   final List<String> statusTabs = [
     'Pending',
-    'Approved', 
+    'Approved',
     'Broker Review',
     'Completed',
     'Rejected',
@@ -21,12 +21,12 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
   final Map<int, List<Map<String, dynamic>>> statusContent = {
     0: [ // Pending
       {
-        'id': 'REQ-001',
+        'id': 'REQ-01',
         'petName': 'Max',
         'service': 'Routine Checkup',
-        'owner': 'Sarah Johnson',
+        'owner': 'Sarah Lungu',
         'vet': 'Dr. Smith',
-        'submittedDate': 'Jan 15, 04:30 PM',
+        'submittedDate': 'Jan 15, 04:30PM',
         'priority': 'low priority',
         'status': 'Pending Approval',
         'description': 'Annual health checkup and vaccination update for Max. He\'s been healthy but due for his yearly exam.',
@@ -34,12 +34,12 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     ],
     1: [ // Approved
       {
-        'id': 'REQ-002',
+        'id': 'REQ-02',
         'petName': 'Bella',
         'service': 'Vaccination',
-        'owner': 'Mike Chen',
+        'owner': 'Mike Zulu',
         'vet': 'Dr. Johnson',
-        'submittedDate': 'Jan 14, 02:15 PM',
+        'submittedDate': 'Jan 14, 02:15PM',
         'priority': 'medium priority',
         'status': 'Approved',
         'description': 'Rabies and DHPP vaccination approved. Owner has been notified to schedule appointment.',
@@ -47,12 +47,12 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     ],
     2: [ // Broker Review
       {
-        'id': 'REQ-003',
+        'id': 'REQ-03',
         'petName': 'Charlie',
         'service': 'Emergency Surgery',
-        'owner': 'Lisa Wong',
+        'owner': 'Lisa Tembo',
         'vet': 'Dr. Brown',
-        'submittedDate': 'Jan 13, 11:45 AM',
+        'submittedDate': 'Jan 13, 11:45AM',
         'priority': 'high priority',
         'status': 'Broker Review',
         'description': 'Complex surgery case requiring specialist review. Insurance broker evaluating coverage options.',
@@ -60,12 +60,12 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     ],
     3: [ // Completed
       {
-        'id': 'REQ-004',
+        'id': 'REQ-04',
         'petName': 'Luna',
         'service': 'Health Screening',
-        'owner': 'David Smith',
+        'owner': 'David Banda',
         'vet': 'Dr. Wilson',
-        'submittedDate': 'Jan 12, 09:30 AM',
+        'submittedDate': 'Jan 12, 09:30AM',
         'priority': 'low priority',
         'status': 'Completed',
         'description': 'Health screening completed successfully. All results normal. Follow-up scheduled in 6 months.',
@@ -73,12 +73,12 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     ],
     4: [ // Rejected
       {
-        'id': 'REQ-005',
+        'id': 'REQ-05',
         'petName': 'Rocky',
         'service': 'Cosmetic Procedure',
         'owner': 'Emma Davis',
         'vet': 'Dr. Taylor',
-        'submittedDate': 'Jan 11, 03:20 PM',
+        'submittedDate': 'Jan 11, 03:20PM',
         'priority': 'low priority',
         'status': 'Rejected',
         'description': 'Cosmetic procedure rejected due to medical necessity requirements not being met.',
@@ -95,7 +95,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
   @override
   Widget build(BuildContext context) {
     final currentItems = statusContent[_selectedTabIndex] ?? [];
-    
+
     return Column(
       children: [
         // Status Tabs
@@ -112,7 +112,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
                 final index = entry.key;
                 final title = entry.value;
                 final isSelected = _selectedTabIndex == index;
-                
+
                 return Padding(
                   padding: const EdgeInsets.only(right: 4),
                   child: GestureDetector(
@@ -124,7 +124,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                        color: isSelected 
+                        color: isSelected
                             ? Theme.of(context).colorScheme.primary
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(6),

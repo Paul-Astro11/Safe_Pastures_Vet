@@ -11,9 +11,9 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _fullNameController = TextEditingController(text: 'ndanji');
-  final _emailController = TextEditingController(text: 'ndanji@gmail.com');
-  final _phoneController = TextEditingController(text: '+1 (555) 123-4567');
+  final _fullNameController = TextEditingController(text: 'Paul');
+  final _emailController = TextEditingController(text: 'kinda@gmail.com');
+  final _phoneController = TextEditingController(text: '+260 973 107 473');
   final _licenseController = TextEditingController(text: 'VET-12345');
   final _specializationController = TextEditingController(text: 'Small Animal Medicine');
   final _clinicController = TextEditingController(text: 'City Veterinary Hospital');

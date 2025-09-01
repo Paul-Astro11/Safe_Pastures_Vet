@@ -4,9 +4,9 @@ class AppTheme {
   static const Color primaryBlue = Color(0xFF2563EB); // Blue primary
   static const Color primaryBlueLight = Color(0xFF3B82F6); // Lighter blue
   static const Color primaryBlueDark = Color(0xFF1D4ED8); // Darker blue
-  static const Color backgroundLight = Color(0xFFF8FAFC); // Light blue-tinted background
+  static const Color backgroundLight = Color(0xFFF1F5F9); // Light blue-tinted background
   static const Color backgroundDark = Color(0xFF0F172A); // Dark background
-  static const Color cardLight = Color(0xFFFFFFFF); // Pure white for cards
+  static const Color cardLight = Color(0xFF1F2937); // Pure white for cards
   static const Color mutedLight = Color(0xFFF1F5F9); // Light blue-gray
 
   static ThemeData get lightTheme {
@@ -14,19 +14,19 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: const ColorScheme.light(
         primary: primaryBlue,
-        secondary: Color(0xFF6B7280),
+        secondary: Color(0xFFF1F5F9),
         surface: cardLight,
-        background: backgroundLight,
+        background: backgroundDark,
         error: Color(0xFFDC2626),
         onPrimary: Colors.white,
         onSecondary: Colors.white,
-        onSurface: Color(0xFF1F2937),
+        onSurface: Color(0xFFF1F5F9),
         onBackground: Color(0xFF1F2937),
         onError: Colors.white,
       ),
-      scaffoldBackgroundColor: backgroundLight,
+      scaffoldBackgroundColor: backgroundDark,
       appBarTheme: const AppBarTheme(
-        backgroundColor: backgroundLight,
+        backgroundColor: backgroundDark,
         foregroundColor: Color(0xFF1F2937),
         elevation: 0,
         centerTitle: false,
@@ -40,7 +40,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryBlue,
+          backgroundColor: primaryBlueDark,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

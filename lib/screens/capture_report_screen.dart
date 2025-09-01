@@ -107,7 +107,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
     // Mock request data
     final requestData = {
       'pet': 'Max (Golden Retriever)',
-      'owner': 'Sarah Johnson',
+      'owner': 'Sarah Lungu',
       'service': 'Routine Checkup',
     };
 
@@ -273,36 +273,41 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                       ),
                                       const SizedBox(height: 16),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
-                                          ElevatedButton.icon(
-                                            onPressed: _pickImages,
-                                            icon: const Icon(Icons.photo_library),
-                                            label: const Text('Choose File'),
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors.transparent,
-                                              foregroundColor: Theme.of(context).colorScheme.primary,
-                                              side: BorderSide(
-                                                color: Theme.of(context).colorScheme.primary,
+                                          Expanded(
+                                            child: ElevatedButton.icon(
+                                              onPressed: _pickImages,
+                                              icon: const Icon(Icons.photo_library),
+                                              label: const Text('Choose File'),
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.transparent,
+                                                foregroundColor: Theme.of(context).colorScheme.primary,
+                                                side: BorderSide(
+                                                  color: Theme.of(context).colorScheme.primary,
+                                                ),
+                                                padding: const EdgeInsets.symmetric(vertical: 12),
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(width: 8),
-                                          ElevatedButton.icon(
-                                            onPressed: _takePicture,
-                                            icon: const Icon(Icons.camera_alt),
-                                            label: const Text('Take Photo'),
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors.transparent,
-                                              foregroundColor: Theme.of(context).colorScheme.primary,
-                                              side: BorderSide(
-                                                color: Theme.of(context).colorScheme.primary,
+                                          const SizedBox(width: 12),
+                                          Expanded(
+                                            child: ElevatedButton.icon(
+                                              onPressed: _takePicture,
+                                              icon: const Icon(Icons.camera_alt),
+                                              label: const Text('Take Photo'),
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.transparent,
+                                                foregroundColor: Theme.of(context).colorScheme.primary,
+                                                side: BorderSide(
+                                                  color: Theme.of(context).colorScheme.primary,
+                                                ),
+                                                padding: const EdgeInsets.symmetric(vertical: 12),
                                               ),
                                             ),
                                           ),
-                                          const SizedBox(width: 6),
                                         ],
-                                      ),
+                                      )
+
                                     ],
                                   ),
                                 ),

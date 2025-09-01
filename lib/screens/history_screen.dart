@@ -10,25 +10,25 @@ class HistoryScreen extends StatelessWidget {
     final historyItems = [
       {
         'name': 'Charlie - Labrador',
-        'owner': 'John Smith',
+        'owner': 'John Banda',
         'service': 'Vaccination',
-        'date': 'January 14, 2024 at 04:30 PM',
+        'date': 'January 14, 2024 at 04:30PM',
         'status': 'Completed',
         'requestId': 'REQ-098',
       },
       {
         'name': 'Whiskers - Siamese',
-        'owner': 'Lisa Wong',
+        'owner': 'Lisa Phiri',
         'service': 'Health Screening',
-        'date': 'January 13, 2024 at 01:15 PM',
+        'date': 'January 13, 2024 at 01:15PM',
         'status': 'Completed',
         'requestId': 'REQ-097',
       },
       {
         'name': 'Rocky - German Shepherd',
-        'owner': 'David Brown',
+        'owner': 'David Tembo',
         'service': 'Emergency Treatment',
-        'date': 'January 12, 2024 at 06:45 PM',
+        'date': 'January 12, 2024 at 06:45PM',
         'status': 'Completed',
         'requestId': 'REQ-096',
       },
@@ -111,7 +111,7 @@ class HistoryScreen extends StatelessWidget {
                                       ),
                                       const SizedBox(width: 4),
                                       Text(
-                                        'Completed ${item['date']}',
+                                        '${item['date']}',
                                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                           color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
                                         ),
