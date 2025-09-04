@@ -25,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
                   Text(
                     'Manage requests',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.bold,color: const Color(0xFFFFFFFF)
                     ),
                   ),
                   const SizedBox(height: 12),

@@ -4,30 +4,31 @@ class AppTheme {
   static const Color primaryBlue = Color(0xFF2563EB); // Blue primary
   static const Color primaryBlueLight = Color(0xFF3B82F6); // Lighter blue
   static const Color primaryBlueDark = Color(0xFF1D4ED8); // Darker blue
-  static const Color backgroundLight = Color(0xFFF1F5F9); // Light blue-tinted background
-  static const Color backgroundDark = Color(0xFF0F172A); // Dark background
-  static const Color cardLight = Color(0xFF1F2937); // Pure white for cards
-  static const Color mutedLight = Color(0xFFF1F5F9); // Light blue-gray
+  static const Color backgroundLight = Color(0xFF1D4ED8); // Light blue-tinted background
+  static const Color backgroundDark = Color(0xFF2563EB); // Dark background
+
+  static const Color cardLight = Color(0xFFFFFFFF); // ✅ Pure white for cards
+  static const Color mutedLight = Color(0xFF4CAF50); // Light blue-gray
 
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: const ColorScheme.light(
         primary: primaryBlue,
-        secondary: Color(0xFFF1F5F9),
+        secondary: mutedLight,
         surface: cardLight,
-        background: backgroundDark,
+        background: backgroundLight,
         error: Color(0xFFDC2626),
         onPrimary: Colors.white,
-        onSecondary: Colors.white,
-        onSurface: Color(0xFFF1F5F9),
-        onBackground: Color(0xFF1F2937),
+        onSecondary: Colors.black,
+        onSurface: Colors.black, // ✅ Black text on surfaces
+        onBackground: Colors.black, // ✅ Black text on background
         onError: Colors.white,
       ),
-      scaffoldBackgroundColor: backgroundDark,
+      scaffoldBackgroundColor: backgroundLight,
       appBarTheme: const AppBarTheme(
-        backgroundColor: backgroundDark,
-        foregroundColor: Color(0xFF1F2937),
+        backgroundColor: backgroundLight,
+        foregroundColor: Colors.black,
         elevation: 0,
         centerTitle: false,
       ),

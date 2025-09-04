@@ -179,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Secure access for licensed veterinary professionals',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                        color: const Color(0xFFFFFFFF),
                     ),
                     textAlign: TextAlign.center,
                   ),

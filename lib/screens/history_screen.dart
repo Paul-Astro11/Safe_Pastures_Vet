@@ -9,7 +9,7 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final historyItems = [
       {
-        'name': 'Charlie - Labrador',
+        'name': 'Cattle - Boran',
         'owner': 'John Banda',
         'service': 'Vaccination',
         'date': 'January 14, 2024 at 04:30PM',
@@ -17,7 +17,7 @@ class HistoryScreen extends StatelessWidget {
         'requestId': 'REQ-098',
       },
       {
-        'name': 'Whiskers - Siamese',
+        'name': 'Pig - large White',
         'owner': 'Lisa Phiri',
         'service': 'Health Screening',
         'date': 'January 13, 2024 at 01:15PM',
@@ -25,7 +25,7 @@ class HistoryScreen extends StatelessWidget {
         'requestId': 'REQ-097',
       },
       {
-        'name': 'Rocky - German Shepherd',
+        'name': 'Goat - Boer',
         'owner': 'David Tembo',
         'service': 'Emergency Treatment',
         'date': 'January 12, 2024 at 06:45PM',
@@ -60,13 +60,13 @@ class HistoryScreen extends StatelessWidget {
                             Text(
                               'Request History',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,color: const Color(0xFFFFFFFF)
                               ),
                             ),
                             Text(
                               'View completed and processed veterinary requests',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                color: const Color(0xFFFFFFFF),
                               ),
                             ),
                           ],

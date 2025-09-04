@@ -9,64 +9,68 @@ class PendingRequestsList extends StatelessWidget {
     final requests = [
       {
         'id': 'REQ-001',
-        'petName': 'Max',
-        'breed': 'Golden Retriever',
-        'service': 'Routine Checkup',
-        'submittedDate': 'Jan 15, 12:30 PM',
+        'AnimalName': 'Cattle',
+        'breed': 'Boran',
+        'service': 'Routine Vaccination',
+        'submittedDate': 'Sep 2, 08:30 AM',
         'priority': 'Low Priority',
         'priorityColor': Colors.grey,
         'owner': {
-          'name': 'Sarah Johnson',
-          'phone': '+1 (555) 123-4567',
-          'email': 'sarah.johnson@email.com',
-          'location': 'Downtown Clinic',
+          'name': 'Mwansa Lungu',
+          'phone': '+260 97 123 4567',
+          'email': 'mwansa.lungu@zambiafarmers.org',
+          'location': 'Chisamba Ranch',
         },
-        'description': 'Annual health checkup and vaccination update for Max. He\'s been healthy but due for his yearly exam.',
-        'petInfo': {
-          'type': 'Dog',
-          'breed': 'Golden Retriever',
+        'description':
+        'Routine vaccination for the Cattle, a healthy Boran cow. Part of regular herd health program.',
+        'AnimalInfo': {
+          'type': 'Cattle',
+          'breed': 'Boran',
         },
       },
       {
         'id': 'REQ-002',
-        'petName': 'Luna',
-        'breed': 'Persian',
-        'service': 'Emergency Consultation',
-        'submittedDate': 'Jan 15, 10:15 AM',
+        'AnimalName': 'Pig',
+        'breed': 'Large White',
+        'service': 'Emergency Illness',
+        'submittedDate': 'Sep 1, 04:20 PM',
         'priority': 'High Priority',
         'priorityColor': Theme.of(context).colorScheme.error,
         'owner': {
-          'name': 'Mike Chen',
-          'phone': '+1 (555) 987-6543',
-          'email': 'mike.chen@email.com',
-          'location': 'Emergency Center',
+          'name': 'Chanda Zulu',
+          'phone': '+260 96 765 4321',
+          'email': 'chanda.zulu@livestockzm.org',
+          'location': 'Ndola Piggery',
         },
-        'description': 'Luna has been vomiting and seems lethargic since yesterday evening. Owner is very concerned.',
-        'petInfo': {
-          'type': 'Cat',
-          'breed': 'Persian',
+        'description':
+        'Pig, a Large White pig, showing signs of distress and refusing to eat. Immediate attention needed.',
+        'AnimalInfo': {
+          'type': 'Pig',
+          'breed': 'Large White',
         },
       },
       {
         'id': 'REQ-003',
-        'petName': 'Buddy',
-        'breed': 'Border Collie',
-        'service': 'Behavioral Assessment',
-        'submittedDate': 'Jan 14, 06:45 PM',
+        'AnimalName': 'Goat',
+        'breed': 'Boer',
+        'service': 'Behavioral Issue',
+        'submittedDate': 'Aug 30, 02:10 PM',
         'priority': 'Medium Priority',
         'priorityColor': Theme.of(context).colorScheme.primary,
         'owner': {
-          'name': 'Emily Rodriguez',
-          'phone': '+1 (555) 456-7890',
-          'email': 'emily.rodriguez@email.com',
-          'location': 'Behavioral Clinic',
+          'name': 'Agnes Phiri',
+          'phone': '+260 95 678 9012',
+          'email': 'agnes.phiri@goatfarmzambia.com',
+          'location': 'Mumbwa Hills Farm',
         },
-        'description': 'Buddy has been showing aggressive behavior towards other dogs during walks. Need professional assessment.',
-        'petInfo': {
-          'type': 'Dog',
-          'breed': 'Border Collie',
+        'description':
+        'Goat, a Boer goat, has been isolating from the herd and acting aggressively. Requesting behavioral evaluation.',
+        'AnimalInfo': {
+          'type': 'Goat',
+          'breed': 'Boer',
         },
       },
+
     ];
 
     return Column(
@@ -90,7 +94,7 @@ class PendingRequestsList extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          (request['petName'] as String).substring(0, 1),
+                          (request['AnimalName'] as String).substring(0, 1),
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.onPrimary,
                             fontWeight: FontWeight.bold,
@@ -105,7 +109,7 @@ class PendingRequestsList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${request['petName']} - ${request['breed']}',
+                            '${request['AnimalName']} - ${request['breed']}',
                             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
@@ -227,13 +231,13 @@ class PendingRequestsList extends StatelessWidget {
   }
 
   Widget _buildPetInfo(BuildContext context, Map<String, dynamic> request) {
-    final petInfo = request['petInfo'] as Map<String, dynamic>;
+    final petInfo = request['AnimalInfo'] as Map<String, dynamic>;
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Pet Information',
+          'Animal Information',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.w600,
           ),

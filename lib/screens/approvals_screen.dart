@@ -33,14 +33,14 @@ class ApprovalsScreen extends StatelessWidget {
                           children: [
                             Text(
                               'Approval Dashboard',
-                              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                              style:  Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                fontWeight: FontWeight.bold, color: const Color(0xFFFFFFFF),
                               ),
                             ),
                             Text(
                               'Review and approve veterinary reports in the approval workflow',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                color: const Color(0xFFFFFFFF),
                               ),
                             ),
                           ],

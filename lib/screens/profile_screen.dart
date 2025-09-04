@@ -88,13 +88,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Text(
                               'Update Your Details',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,color: const Color(0xFFFFFFFF)
                               ),
                             ),
                             Text(
                               'Manage your professional profile and contact information',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                color: const Color(0xFFFFFFFF),
                               ),
                             ),
                           ],
@@ -341,58 +341,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-
-                  // Account Settings Card
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 800),
-                    child: Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Account Settings',
-                              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Manage your account preferences and security settings',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-
-                            _buildSettingItem(
-                              'Change Password',
-                              'Update your account password for security',
-                              Icons.lock,
-                              () => _showFeatureComingSoon('Change Password'),
-                            ),
-                            const SizedBox(height: 12),
-                            
-                            _buildSettingItem(
-                              'Notification Preferences',
-                              'Manage how you receive notifications',
-                              Icons.notifications,
-                              () => _showFeatureComingSoon('Notification Preferences'),
-                            ),
-                            const SizedBox(height: 12),
-                            
-                            _buildSettingItem(
-                              'Two-Factor Authentication',
-                              'Add an extra layer of security to your account',
-                              Icons.security,
-                              () => _showFeatureComingSoon('Two-Factor Authentication'),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

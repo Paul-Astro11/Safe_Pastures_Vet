@@ -22,7 +22,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     0: [ // Pending
       {
         'id': 'REQ-01',
-        'petName': 'Max',
+        'AnimalName': 'Cattle',
         'service': 'Routine Checkup',
         'owner': 'Sarah Lungu',
         'vet': 'Dr. Smith',
@@ -35,7 +35,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     1: [ // Approved
       {
         'id': 'REQ-02',
-        'petName': 'Bella',
+        'AnimalName': 'Pig',
         'service': 'Vaccination',
         'owner': 'Mike Zulu',
         'vet': 'Dr. Johnson',
@@ -48,7 +48,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     2: [ // Broker Review
       {
         'id': 'REQ-03',
-        'petName': 'Charlie',
+        'AnimalName': 'Goat',
         'service': 'Emergency Surgery',
         'owner': 'Lisa Tembo',
         'vet': 'Dr. Brown',
@@ -61,7 +61,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     3: [ // Completed
       {
         'id': 'REQ-04',
-        'petName': 'Luna',
+        'AnimalName': 'Horse',
         'service': 'Health Screening',
         'owner': 'David Banda',
         'vet': 'Dr. Wilson',
@@ -74,7 +74,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     4: [ // Rejected
       {
         'id': 'REQ-05',
-        'petName': 'Rocky',
+        'AnimalName': 'Sheep',
         'service': 'Cosmetic Procedure',
         'owner': 'Emma Davis',
         'vet': 'Dr. Taylor',
@@ -190,7 +190,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
                           ),
                           child: Center(
                             child: Text(
-                              (item['petName'] as String).substring(0, 1),
+                              (item['AnimalName'] as String).substring(0, 1),
                               style: TextStyle(
                                 color: Theme.of(context).colorScheme.onPrimary,
                                 fontWeight: FontWeight.bold,
@@ -205,7 +205,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${item['petName']} - ${item['service']}',
+                                '${item['AnimalName']} - ${item['service']}',
                                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.w600,
                                 ),

@@ -18,7 +18,7 @@ class DashboardStats extends StatelessWidget {
         'value': '3',
         'change': '-2 from last week',
         'icon': Icons.access_time,
-        'positive': false,
+        'positive': true,
       },
       {
         'title': 'Completed Today',

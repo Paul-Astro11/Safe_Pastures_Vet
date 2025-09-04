@@ -106,7 +106,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
   Widget build(BuildContext context) {
     // Mock request data
     final requestData = {
-      'pet': 'Max (Golden Retriever)',
+      'animal': 'Cattle (Boran)',
       'owner': 'Sarah Lungu',
       'service': 'Routine Checkup',
     };
@@ -137,13 +137,13 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                             Text(
                               'Capture Report',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold, color: const Color(0xFFFFFFFF)
                               ),
                             ),
                             Text(
                               'Upload images and submit your veterinary report for request ${widget.requestId}',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                color: const Color(0xFFFFFFFF),
                               ),
                             ),
                           ],
@@ -151,7 +151,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 20),
 
                   // Request Information Card
                   Card(
@@ -179,7 +179,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                               if (constraints.maxWidth > 600) {
                                 return Row(
                                   children: [
-                                    Expanded(child: _buildInfoItem('Pet', requestData['pet']!)),
+                                    Expanded(child: _buildInfoItem('Animal', requestData['animal']!)),
                                     Expanded(child: _buildInfoItem('Owner', requestData['owner']!)),
                                     Expanded(child: _buildServiceBadge(requestData['service']!)),
                                   ],
@@ -187,7 +187,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                               } else {
                                 return Column(
                                   children: [
-                                    _buildInfoItem('Pet', requestData['pet']!),
+                                    _buildInfoItem('Animal', requestData['animal']!),
                                     const SizedBox(height: 8),
                                     _buildInfoItem('Owner', requestData['owner']!),
                                     const SizedBox(height: 8),
@@ -307,7 +307,6 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                           ),
                                         ],
                                       )
-
                                     ],
                                   ),
                                 ),
@@ -457,6 +456,37 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                             'Any additional observations or comments...',
                                             _additionalNotesController,
                                           ),
+                                          const SizedBox(height: 16),
+                                          SizedBox(
+                                            width: double.infinity,
+                                            child: ElevatedButton(
+                                              onPressed: _isSubmitting ? null : _submitReport,
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor: Colors.blue, // Set button color to purple
+                                                foregroundColor: Colors.white,  // Set text/icon color to white
+                                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                              ),
+                                              child: _isSubmitting
+                                                  ? const SizedBox(
+                                                height: 20,
+                                                width: 20,
+                                                child: CircularProgressIndicator(
+                                                  strokeWidth: 2,
+                                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                                ),
+                                              )
+                                                  : const Text('Submit Report'),
+                                            ),
+                                          ),
+                                          const SizedBox(height: 12),
+                                          Text(
+                                            'Please upload at least one image before submitting',
+                                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                              color: const Color(0xFF1E293B),
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          const SizedBox(height: 15),
                                         ],
                                       );
                                     }
@@ -465,36 +495,6 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                               ],
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 24),
-
-                        // Submit button
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: _isSubmitting ? null : _submitReport,
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                            ),
-                            child: _isSubmitting
-                                ? const SizedBox(
-                                    height: 20,
-                                    width: 20,
-                                    child: CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                                    ),
-                                  )
-                                : const Text('Submit Report'),
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Please upload at least one image before submitting',
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
-                          ),
-                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),

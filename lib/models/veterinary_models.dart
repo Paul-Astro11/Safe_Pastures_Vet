@@ -1,7 +1,7 @@
 class VeterinaryRequest {
   final String id;
-  final String petName;
-  final String petType;
+  final String AnimalName;
+  final String AnimalType;
   final String breed;
   final String service;
   final String ownerName;
@@ -16,8 +16,8 @@ class VeterinaryRequest {
 
   const VeterinaryRequest({
     required this.id,
-    required this.petName,
-    required this.petType,
+    required this.AnimalName,
+    required this.AnimalType,
     required this.breed,
     required this.service,
     required this.ownerName,

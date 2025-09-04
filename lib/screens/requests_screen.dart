@@ -37,13 +37,13 @@ class RequestsScreen extends StatelessWidget {
                             Text(
                               'Pending Requests',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,color: const Color(0xFFFFFFFF)
                               ),
                             ),
                             Text(
                               'Review and manage incoming veterinary service requests',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                color: const Color(0xFFFFFFFF),
                               ),
                             ),
                           ],

@@ -7,9 +7,9 @@ class RecentActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     final activities = [
       {
-        'id': 'SJ',
-        'name': 'New request from Sarah Johnson',
-        'description': 'Golden Retriever - Routine checkup',
+        'id': 'SB',
+        'name': 'New request from Sarah Banda',
+        'description': 'Cattle (Boran) - Routine checkup',
         'time': '2 hours ago',
         'status': 'pending',
         'statusColor': Theme.of(context).colorScheme.error,
@@ -17,7 +17,7 @@ class RecentActivity extends StatelessWidget {
       {
         'id': 'MK',
         'name': 'Report approved',
-        'description': 'Max (German Shepherd) - Vaccination',
+        'description': 'Pig (Large White)  - Vaccination',
         'time': '4 hours ago',
         'status': 'approved',
         'statusColor': Theme.of(context).colorScheme.primary,
@@ -25,14 +25,14 @@ class RecentActivity extends StatelessWidget {
       {
         'id': 'AL',
         'name': 'Report submitted',
-        'description': 'Luna (Persian Cat) - Health screening',
+        'description': 'Goat (Boer) - Health screening',
         'time': '6 hours ago',
         'status': 'submitted',
         'statusColor': Theme.of(context).colorScheme.secondary,
       },
       {
         'id': 'MC',
-        'name': 'New request from Mike Chen',
+        'name': 'New request from Mike Chanda',
         'description': 'Border Collie - Emergency consultation',
         'time': '1 day ago',
         'status': 'completed',

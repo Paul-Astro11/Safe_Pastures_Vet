@@ -57,13 +57,13 @@ class NotificationsScreen extends StatelessWidget {
                             Text(
                               'Notifications',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.bold,color: const Color(0xFFFFFFFF)
                               ),
                             ),
                             Text(
                               'Stay updated with your veterinary practice activities',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                color: const Color(0xFFFFFFFF),
                               ),
                             ),
                           ],
