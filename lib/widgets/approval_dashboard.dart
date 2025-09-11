@@ -101,43 +101,40 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     final review = mockReviewData[reportId];
 
     if (review != null) {
-      showModalBottomSheet(
+      showDialog(
         context: context,
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        ),
         builder: (context) {
-          return Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
-              top: 16,
-              left: 16,
-              right: 16,
+          return Dialog(
+            insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
             ),
             child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Report Review', style: Theme.of(context).textTheme.headlineSmall),
-                  const SizedBox(height: 16),
-                  _buildReviewField('Diagnosis', review['diagnosis']!),
-                  const SizedBox(height: 12),
-                  _buildReviewField('Treatment Provided', review['treatment']!),
-                  const SizedBox(height: 12),
-                  _buildReviewField('Recommendations', review['recommendations']!),
-                  const SizedBox(height: 12),
-                  _buildReviewField('Follow-up Required', review['followUp']!),
-                  const SizedBox(height: 12),
-                  _buildReviewField('Additional Notes', review['additionalNotes']!),
-                  const SizedBox(height: 24),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text('Close'),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Report Review', style: Theme.of(context).textTheme.headlineSmall),
+                    const SizedBox(height: 16),
+                    _buildReviewField('Diagnosis', review['diagnosis']!),
+                    const SizedBox(height: 12),
+                    _buildReviewField('Treatment Provided', review['treatment']!),
+                    const SizedBox(height: 12),
+                    _buildReviewField('Recommendations', review['recommendations']!),
+                    const SizedBox(height: 12),
+                    _buildReviewField('Follow-up Required', review['followUp']!),
+                    const SizedBox(height: 12),
+                    _buildReviewField('Additional Notes', review['additionalNotes']!),
+                    const SizedBox(height: 24),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text('Close'),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
@@ -149,6 +146,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
       );
     }
   }
+
 
   Widget _buildReviewField(String title, String value) {
     return Column(
