@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:safe_pastures_vet/screens/capture_report_screen.dart';
 import 'theme/app_theme.dart';
 import 'screens/login_screen.dart';
+import 'screens/reset_password_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/requests_screen.dart';
 import 'screens/history_screen.dart';
@@ -70,6 +71,10 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/capture',
       builder: (context, state) => const CaptureReportScreen(requestId: '',),
+    ),
+    GoRoute(
+      path: '/reset-password',
+      builder: (context, state) => const ResetPasswordScreen(),
     ),
   ],
 );

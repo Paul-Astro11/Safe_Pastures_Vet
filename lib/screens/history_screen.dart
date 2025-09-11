@@ -50,7 +50,7 @@ class HistoryScreen extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () => context.go('/dashboard'),
-                        icon: const Icon(Icons.arrow_back),
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
                       ),
                       const SizedBox(width: 8),
                       Expanded(

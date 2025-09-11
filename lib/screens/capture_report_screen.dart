@@ -23,7 +23,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
   final _recommendationsController = TextEditingController();
   final _followUpController = TextEditingController();
   final _additionalNotesController = TextEditingController();
-  
+
   final List<XFile> _uploadedImages = [];
   final ImagePicker _picker = ImagePicker();
   bool _isSubmitting = false;
@@ -92,11 +92,11 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
         setState(() {
           _isSubmitting = false;
         });
-        
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Report submitted successfully!')),
         );
-        
+
         context.go('/dashboard');
       }
     }
@@ -127,7 +127,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                     children: [
                       IconButton(
                         onPressed: () => context.go('/requests'),
-                        icon: const Icon(Icons.arrow_back),
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
                       ),
                       const SizedBox(width: 8),
                       Expanded(
@@ -137,7 +137,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                             Text(
                               'Capture Report',
                               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold, color: const Color(0xFFFFFFFF)
+                                  fontWeight: FontWeight.bold, color: const Color(0xFFFFFFFF)
                               ),
                             ),
                             Text(
@@ -237,7 +237,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                   ),
                                 ),
                                 const SizedBox(height: 16),
-                                
+
                                 // Upload area
                                 Container(
                                   width: double.infinity,
@@ -310,7 +310,8 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                     ],
                                   ),
                                 ),
-                                
+
+                                // Uploaded images
                                 // Uploaded images
                                 if (_uploadedImages.isNotEmpty) ...[
                                   const SizedBox(height: 16),
@@ -321,40 +322,54 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                  Wrap(
-                                    spacing: 8,
-                                    runSpacing: 8,
-                                    children: _uploadedImages.asMap().entries.map((entry) {
-                                      final index = entry.key;
-                                      final image = entry.value;
-                                      return Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
-                                          borderRadius: BorderRadius.circular(12),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(
-                                              image.name,
-                                              style: Theme.of(context).textTheme.bodySmall,
+
+                                  // Use GridView for thumbnails instead of filenames
+                                  GridView.builder(
+                                    shrinkWrap: true,
+                                    physics: const NeverScrollableScrollPhysics(),
+                                    itemCount: _uploadedImages.length,
+                                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 3, // 3 images per row
+                                      crossAxisSpacing: 8,
+                                      mainAxisSpacing: 8,
+                                    ),
+                                    itemBuilder: (context, index) {
+                                      final image = _uploadedImages[index];
+                                      return Stack(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(8),
+                                            child: Image.file(
+                                              File(image.path),
+                                              fit: BoxFit.cover,
+                                              width: double.infinity,
+                                              height: double.infinity,
                                             ),
-                                            const SizedBox(width: 4),
-                                            GestureDetector(
+                                          ),
+                                          Positioned(
+                                            top: 4,
+                                            right: 4,
+                                            child: GestureDetector(
                                               onTap: () => _removeImage(index),
-                                              child: Icon(
-                                                Icons.close,
-                                                size: 16,
-                                                color: Theme.of(context).colorScheme.error,
+                                              child: Container(
+                                                decoration: const BoxDecoration(
+                                                  color: Colors.black54,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: const Icon(
+                                                  Icons.close,
+                                                  size: 16,
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       );
-                                    }).toList(),
+                                    },
                                   ),
                                 ],
+
                               ],
                             ),
                           ),
@@ -401,7 +416,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                   required: true,
                                 ),
                                 const SizedBox(height: 16),
-                                
+
                                 _buildTextFormField(
                                   'Treatment Provided',
                                   'Describe the treatment, procedures, or medications administered...',
@@ -410,7 +425,7 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
                                   required: true,
                                 ),
                                 const SizedBox(height: 16),
-                                
+
                                 _buildTextFormField(
                                   'Recommendations',
                                   'Care instructions, follow-up recommendations, or lifestyle changes...',
@@ -555,12 +570,12 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
   }
 
   Widget _buildTextFormField(
-    String label,
-    String hint,
-    TextEditingController controller, {
-    int maxLines = 1,
-    bool required = false,
-  }) {
+      String label,
+      String hint,
+      TextEditingController controller, {
+        int maxLines = 1,
+        bool required = false,
+      }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -579,11 +594,11 @@ class _CaptureReportScreenState extends State<CaptureReportScreen> {
           ),
           validator: required
               ? (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'This field is required';
-                  }
-                  return null;
-                }
+            if (value == null || value.isEmpty) {
+              return 'This field is required';
+            }
+            return null;
+          }
               : null,
         ),
       ],

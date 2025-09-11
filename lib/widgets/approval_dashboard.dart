@@ -86,9 +86,78 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
     ],
   };
 
+  // Mock review data for pending requests
+  final Map<String, Map<String, String>> mockReviewData = {
+    'REQ-01': {
+      'diagnosis': 'Mild anemia observed. Vital signs normal.',
+      'treatment': 'Vitamin supplement administered. Monitor diet.',
+      'recommendations': 'Recheck in 2 weeks. Ensure proper nutrition.',
+      'followUp': '2 weeks',
+      'additionalNotes': 'Animal is responding well to treatment.',
+    },
+  };
+
   void _handleReview(String reportId) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Reviewing report $reportId')),
+    final review = mockReviewData[reportId];
+
+    if (review != null) {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+        builder: (context) {
+          return Padding(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+              top: 16,
+              left: 16,
+              right: 16,
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Report Review', style: Theme.of(context).textTheme.headlineSmall),
+                  const SizedBox(height: 16),
+                  _buildReviewField('Diagnosis', review['diagnosis']!),
+                  const SizedBox(height: 12),
+                  _buildReviewField('Treatment Provided', review['treatment']!),
+                  const SizedBox(height: 12),
+                  _buildReviewField('Recommendations', review['recommendations']!),
+                  const SizedBox(height: 12),
+                  _buildReviewField('Follow-up Required', review['followUp']!),
+                  const SizedBox(height: 12),
+                  _buildReviewField('Additional Notes', review['additionalNotes']!),
+                  const SizedBox(height: 24),
+                  Center(
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Close'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('No review data available for $reportId')),
+      );
+    }
+  }
+
+  Widget _buildReviewField(String title, String value) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 4),
+        Text(value),
+      ],
     );
   }
 
@@ -148,7 +217,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
         ),
         const SizedBox(height: 24),
 
-        // Pending Items
+        // Items List
         if (currentItems.isEmpty)
           Card(
             child: Padding(
@@ -308,7 +377,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
                             ),
                           ],
                         ),
-                        if (_selectedTabIndex == 0) // Only show review button for pending
+                        if (_selectedTabIndex == 0)
                           ElevatedButton(
                             onPressed: () => _handleReview(item['id'] as String),
                             style: ElevatedButton.styleFrom(
@@ -323,7 +392,7 @@ class _ApprovalDashboardState extends State<ApprovalDashboard> {
               ),
             ),
           ),
-        ),
+          ),
       ],
     );
   }

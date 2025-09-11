@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/app_logo.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -68,6 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 80,
                             ),
                             const SizedBox(height: 12),
+
                             // Card Header
                             Text(
                               'Safe Pastures',
@@ -140,13 +140,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: _isLoading ? null : _handleSubmit,
                               child: _isLoading
                                   ? const SizedBox(
-                                      height: 20,
-                                      width: 20,
-                                      child: CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                                      ),
-                                    )
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                ),
+                              )
                                   : const Text('Sign In'),
                             ),
                             const SizedBox(height: 16),
@@ -154,12 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             // Forgot Password Link
                             TextButton(
                               onPressed: () {
-                                // Handle forgot password
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Password reset functionality coming soon'),
-                                  ),
-                                );
+                                context.go('/reset-password');
                               },
                               child: Text(
                                 'Forgot your password?',
@@ -179,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     'Secure access for licensed veterinary professionals',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: const Color(0xFFFFFFFF),
+                      color: const Color(0xFFFFFFFF),
                     ),
                     textAlign: TextAlign.center,
                   ),

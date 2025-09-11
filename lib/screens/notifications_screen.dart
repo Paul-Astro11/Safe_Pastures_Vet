@@ -10,21 +10,24 @@ class NotificationsScreen extends StatelessWidget {
     final notifications = [
       {
         'title': 'Request Accepted',
-        'description': 'Your request for Max (Golden Retriever) has been accepted by Dr. Smith',
+        'description':
+        'Your request for Max (Golden Retriever) has been accepted by Dr. Smith',
         'time': '5m ago',
         'read': false,
         'type': 'success',
       },
       {
         'title': 'Report Submitted',
-        'description': 'Veterinary report for Luna (Persian Cat) has been submitted for approval',
+        'description':
+        'Veterinary report for Luna (Persian Cat) has been submitted for approval',
         'time': '2h ago',
         'read': false,
         'type': 'info',
       },
       {
         'title': 'Approval Complete',
-        'description': 'Final approval completed for Buddy (Border Collie) - Claim approved for \$450.00',
+        'description':
+        'Final approval completed for Buddy (Border Collie) - Claim approved for \$450.00',
         'time': '4h ago',
         'read': true,
         'type': 'success',
@@ -47,7 +50,7 @@ class NotificationsScreen extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () => context.go('/dashboard'),
-                        icon: const Icon(Icons.arrow_back),
+                        icon: const Icon(Icons.arrow_back, color: Colors.white),
                       ),
                       const SizedBox(width: 8),
                       Expanded(
@@ -56,14 +59,21 @@ class NotificationsScreen extends StatelessWidget {
                           children: [
                             Text(
                               'Notifications',
-                              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                fontWeight: FontWeight.bold,color: const Color(0xFFFFFFFF)
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineMedium
+                                  ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
                               ),
                             ),
                             Text(
                               'Stay updated with your veterinary practice activities',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: const Color(0xFFFFFFFF),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                color: Colors.white70,
                               ),
                             ),
                           ],
@@ -72,10 +82,15 @@ class NotificationsScreen extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('All notifications marked as read')),
+                            const SnackBar(
+                                content:
+                                Text('All notifications marked as read')),
                           );
                         },
-                        child: const Text('Mark all read'),
+                        child: const Text(
+                          'Mark all read',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -85,9 +100,7 @@ class NotificationsScreen extends StatelessWidget {
                   ...notifications.map((notification) => Padding(
                     padding: const EdgeInsets.only(bottom: 12.0),
                     child: Card(
-                      color: notification['read'] as bool
-                          ? null
-                          : Theme.of(context).colorScheme.primary.withOpacity(0.05),
+                      color: Colors.white, // 🔹 dark card for contrast
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Row(
@@ -98,7 +111,9 @@ class NotificationsScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: notification['read'] as bool
                                     ? Colors.transparent
-                                    : Theme.of(context).colorScheme.primary,
+                                    : Theme.of(context)
+                                    .colorScheme
+                                    .primary,
                                 borderRadius: BorderRadius.circular(4),
                               ),
                             ),
@@ -107,37 +122,50 @@ class NotificationsScreen extends StatelessWidget {
                               notification['type'] == 'success'
                                   ? Icons.check_circle
                                   : notification['type'] == 'info'
-                                      ? Icons.info
-                                      : Icons.notifications,
+                                  ? Icons.info
+                                  : Icons.notifications,
                               color: notification['type'] == 'success'
-                                  ? Colors.green
+                                  ? Colors.greenAccent
                                   : notification['type'] == 'info'
-                                      ? Colors.blue
-                                      : Theme.of(context).colorScheme.primary,
+                                  ? Colors.lightBlueAccent
+                                  : Theme.of(context)
+                                  .colorScheme
+                                  .primary,
                             ),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     notification['title'] as String,
-                                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge
+                                        ?.copyWith(
                                       fontWeight: FontWeight.w600,
+                                      color: Colors.black,
                                     ),
                                   ),
                                   const SizedBox(height: 2),
                                   Text(
                                     notification['description'] as String,
-                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(
+                                      color: Colors.black,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
                                     notification['time'] as String,
-                                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall
+                                        ?.copyWith(
+                                      color: Colors.black,
                                     ),
                                   ),
                                 ],
